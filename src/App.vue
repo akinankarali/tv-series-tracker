@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <MasterHeader />
     <main class="main">
       <Container>
         <router-view />
@@ -10,14 +11,19 @@
 
 <script>
 import Container from '@/components/Container'
+import MasterHeader from '@/components/Header'
 
 export default {
   name: 'App',
   components: {
     Container,
+    MasterHeader
   }
 }
 </script>
 
 <style scoped>
+.main{
+  padding-top: 40px;
+}
 </style>

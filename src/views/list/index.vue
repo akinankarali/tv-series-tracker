@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="list">
     <div class="timeline">
-      <CustomText tag="h1">Home</CustomText>
+      <CustomText tag="h1">List</CustomText>
       <Card />
     </div>
   </div>
@@ -11,20 +11,13 @@
 import Card from "@/components/Card";
 import CustomText from "@/components/CustomText";
 export default {
-  name: 'Home',
+  name: 'List',
   components:{
     CustomText,
-    Card
+    Card,
   }
 }
 </script>
 
 <style scoped>
-.home {
-  color: red;
-
-  @media (--t) {
-    color: blue;
-  }
-}
 </style>
