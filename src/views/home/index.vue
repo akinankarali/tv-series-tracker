@@ -1,30 +1,33 @@
 <template>
   <div class="home">
-    <div class="timeline">
-      <CustomText tag="h1">Home</CustomText>
+    <div class="results">
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
       <Card />
     </div>
   </div>
 </template>
 
 <script>
-import Card from "@/components/Card";
-import CustomText from "@/components/CustomText";
+import Card from '@/components/Card'
 export default {
   name: 'Home',
-  components:{
-    CustomText,
+  components: {
     Card
   }
 }
 </script>
 
 <style scoped>
-.home {
-  color: red;
-
-  @media (--t) {
-    color: blue;
-  }
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 </style>
