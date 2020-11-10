@@ -8,28 +8,30 @@
 
       <!-- search -->
       <form class="search">
-        <input type="text" placeholder="Search">
+        <input type="text" placeholder="Search" />
       </form>
 
       <!-- navigation -->
       <nav class="navigation">
-        <router-link to="/">
+        <router-link to="/" class="header-icon header-icon--active">
           <HomeIcon />
+          <p>Home</p>
         </router-link>
-        <router-link to="/list">
+        <router-link to="/list" class="header-icon">
           <YourListIcon />
+          <p>Your List</p>
         </router-link>
       </nav>
     </Container>
   </header>
 </template>
 <script>
-import Container from '@/components/Container';
+import Container from '@/components/Container'
 import YourListIcon from '@/icons/YourListIcon.svg'
 import HomeIcon from '@/icons/HomeIcon.svg'
 
 export default {
-  name: "MainHeader",
+  name: 'MainHeader',
   components: {
     Container,
     YourListIcon,
@@ -40,24 +42,26 @@ export default {
 
 <style scoped>
 .header {
-  margin-top: -60px;
-  border-bottom: 1px solid rgb(var(--b6a));
+  padding-bottom: 8px;
 }
-.header-inner{
+.header-inner {
   height: 60px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
 }
-.logo{
+.logo {
   font-size: 1.6rem;
   font-weight: bold;
+  font-family: 'Philosopher', serif;
+  width: 200px;
+  margin-left: -20px;
 }
-.search{
+.search {
   text-align: center;
-  input{
-    width: 75%;
-    height: 28px;
+  input {
+    width: 250px;
+    height: 32px;
     border: 1px solid rgb(var(--b6a));
     background-color: rgb(var(--b3f));
     border-radius: 4px;
@@ -65,12 +69,30 @@ export default {
     padding-right: 16px;
   }
 }
-.navigation{
+.navigation {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-a{
+a {
   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 100px;
+  svg {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  p {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: small;
+    display: none;
+  }
+}
+.header-icon:hover > p {
+  display: inline-flex;
 }
 </style>
