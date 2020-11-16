@@ -9,6 +9,7 @@
         :genres="show.genres"
         :year="show.premiered"
         :img="show.image.medium"
+        :id="show.id"
       />
     </div>
   </div>
@@ -24,6 +25,9 @@ export default {
   computed: {
     shows() {
       return this.$store.state.shows
+    },
+    genres() {
+      return this.$store.state.genres
     }
   },
   mounted() {
@@ -38,7 +42,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
 }
-.results .container{
+.results .container {
   max-width: 240px;
 }
 </style>
