@@ -14,9 +14,9 @@ export default {
     },
     size: {
       type: String,
-      default: 'normal', // normal:14, small:12, xsmall:11, xxsmall:10
+      default: 'normal',
       validator: function(value) {
-        return ['normal', 'small', 'xsmall', 'xxsmall'].indexOf(value) !== -1
+        return ['normal', 'small', 'xsmall', 'xxsmall', 'medium', 'large', 'xlarge', 'xxlarge'].indexOf(value) !== -1
       }
     }
   }
@@ -32,5 +32,17 @@ export default {
 }
 .xxsmall {
   font-size: 10px;
+}
+.medium {
+  font-size: 14px;
+}
+.large {
+  font-size: 16px;
+}
+.xlarge {
+  font-size: 18px;
+}
+.xxlarge {
+  font-size: 20px;
 }
 </style>
