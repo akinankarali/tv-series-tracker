@@ -1,6 +1,6 @@
-import axios from 'axios'
 import Vuex from 'vuex'
 import Vue from 'vue'
+import Shows from '../api/Shows'
 
 //load Vuex
 Vue.use(Vuex)
@@ -50,38 +50,38 @@ const mutations = {
 //to handle actions
 const actions = {
   async fetchAllShows({ commit }) {
-    axios.get('http://api.tvmaze.com/shows').then(response => {
+    Shows.all().then(response => {
       commit('SET_SHOWS', response.data)
       commit('SET_GENRES', response.data)
     })
   },
   async fetchShow({ commit }) {
-    axios.get('http://api.tvmaze.com/shows/1').then(response => {
+    Shows.show().then(response => {
       commit('SET_SHOW_INFO', response.data)
     })
   },
   async fetchShowImages({ commit }) {
-    axios.get('http://api.tvmaze.com/shows/1/images').then(response => {
+    Shows.image().then(response => {
       commit('SET_SHOW_IMAGES', response.data)
     })
   },
   async fetchShowCast({ commit }) {
-    axios.get('http://api.tvmaze.com/shows/1/cast').then(response => {
+    Shows.cast().then(response => {
       commit('SET_SHOW_CAST', response.data)
     })
   },
   async fetchShowEpisodes({ commit }) {
-    axios.get('http://api.tvmaze.com/shows/1/episodes').then(response => {
+    Shows.episode().then(response => {
       commit('SET_SHOW_EPISODES', response.data)
     })
   },
   async fetchShowSeasons({ commit }) {
-    axios.get('http://api.tvmaze.com/shows/1/seasons').then(response => {
+    Shows.season().then(response => {
       commit('SET_SHOW_SEASONS', response.data)
     })
   },
   async fetchShowCrew({ commit }) {
-    axios.get('http://api.tvmaze.com/shows/1/crew').then(response => {
+    Shows.crew().then(response => {
       commit('SET_SHOW_CREW', response.data)
     })
   }
