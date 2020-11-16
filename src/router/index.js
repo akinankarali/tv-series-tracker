@@ -11,11 +11,17 @@ const routes = [
     component: Home
   },
   {
-    path: '/list',
-    name: 'List',
+    path: '/your-list',
+    name: 'Your-List',
     component: () =>
         import(/* webpackChunkName: "list" */ '../views/list'),
   },
+  {
+    path: '/movie-info',
+    name: 'Movie-info',
+    component: () =>
+        import(/* webpackChunkName: "list" */ '../views/movie'),
+  }
 ]
 
 const router = new VueRouter({

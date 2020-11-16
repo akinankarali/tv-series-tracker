@@ -17,7 +17,7 @@
           <HomeIcon />
           <p>Home</p>
         </router-link>
-        <router-link to="/list" class="header-icon">
+        <router-link to="/your-list" class="header-icon">
           <YourListIcon />
           <p>Your List</p>
         </router-link>
