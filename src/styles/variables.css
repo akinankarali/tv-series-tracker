@@ -1,6 +1,9 @@
 :root {
   --header-height: 60px;
   --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  --border-color: #FFFFFF1A;
+  --yellow: 245, 197, 24;
+  --background: #FFFFFF1F;
 
   --i1d: 38, 38, 38;
   --edc: 199, 199, 199;
