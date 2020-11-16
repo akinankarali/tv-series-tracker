@@ -24,34 +24,10 @@ export default {
   computed: {
     shows() {
       return this.$store.state.shows
-    },
-    showInfo() {
-      return this.$store.state.showInfo
-    },
-    showImages() {
-      return this.$store.state.showImages
-    },
-    showCast() {
-      return this.$store.state.showCast
-    },
-    showEpisodes() {
-      return this.$store.state.showEpisodes
-    },
-    showSeasons() {
-      return this.$store.state.showSeasons
-    },
-    showCrew() {
-      return this.$store.state.showCrew
     }
   },
   mounted() {
     this.$store.dispatch('fetchAllShows')
-    this.$store.dispatch('fetchShow')
-    this.$store.dispatch('fetchShowImages')
-    this.$store.dispatch('fetchShowCast')
-    this.$store.dispatch('fetchShowEpisodes')
-    this.$store.dispatch('fetchShowSeasons')
-    this.$store.dispatch('fetchShowCrew')
   }
 }
 </script>
@@ -61,5 +37,8 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+.results .container{
+  max-width: 240px;
 }
 </style>
