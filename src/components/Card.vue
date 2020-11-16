@@ -2,14 +2,25 @@
   <Container>
     <div class="card">
       <div class="card-image">
-        <img src="../assets/images/StarWars.jpg" alt="" />
+        <img :src="img" alt="" />
       </div>
       <div class="card-infos">
-        <h2>{{ name }}</h2>
-        <p>{{ year }}</p>
-        <p>{{ season }}Seasons</p>
-        <p>{{ rating }}/10</p>
-        <p>Follow +</p>
+        <div class="card-name">
+          <h2>{{ name }}</h2>
+        </div>
+        <div class="card-year">
+          <p>{{ year }}</p>
+        </div>
+        <div class="card-average">
+          <p>{{ average }}/10</p>
+        </div>
+        <div class="card-genres">
+          <div v-for="(genre, index) in genres" :key="index">
+            <p>
+              {{ genre }}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </Container>
@@ -24,9 +35,10 @@ export default {
   },
   props: {
     name: String,
-    year: Number,
-    season: Number,
-    rating: Number
+    year: String,
+    average: Number,
+    img: String,
+    genres: Array
   }
 }
 </script>
