@@ -1,32 +1,15 @@
 <template>
   <div class="home">
     <div class="results">
-      <p>{{ shows }}</p>
-      <p>----------------</p>
-      <p>{{ genres }}</p>
-      <p>----------------</p>
-      <p>{{ showInfo }}</p>
-      <p>----------------</p>
-      <p>{{ showImages }}</p>
-      <p>----------------</p>
-      <p>{{ showCast }}</p>
-      <p>----------------</p>
-      <p>{{ showEpisodes }}</p>
-      <p>----------------</p>
-      <p>{{ showSeasons }}</p>
-      <p>----------------</p>
-      <p>{{ showCrew }}</p>
-      <p>----------------</p>
-
-      <Card :name="shows.name" :rating="shows.rating.average" :year="shows.premiered"/>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      <Card
+        v-for="show in shows"
+        :key="show.id"
+        :name="show.name"
+        :average="show.rating.average"
+        :genres="show.genres"
+        :year="show.premiered"
+        :img="show.image.medium"
+      />
     </div>
   </div>
 </template>
@@ -40,10 +23,7 @@ export default {
   },
   computed: {
     shows() {
-      return this.$store.state.showInfo
-    },
-    genres() {
-      return this.$store.state.genres
+      return this.$store.state.shows
     },
     showInfo() {
       return this.$store.state.showInfo
