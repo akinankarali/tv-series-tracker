@@ -24,6 +24,9 @@
           </div>
         </div>
       </div>
+      <div v-if="getFollowList.length == 0">
+        <h3>Please follow something :)</h3>
+      </div>
     </div>
   </div>
 </template>
