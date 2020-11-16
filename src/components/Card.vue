@@ -6,19 +6,21 @@
       </div>
       <div class="card-infos">
         <div class="card-name">
-          <h2>{{ name }}</h2>
+          <CustomText tag="h2" class="xlarge">{{ name }}</CustomText>
         </div>
-        <div class="card-year">
-          <p>{{ year }}</p>
-        </div>
-        <div class="card-average">
-          <p>{{ average }}/10</p>
-        </div>
-        <div class="card-genres">
-          <div v-for="(genre, index) in genres" :key="index">
-            <p>
-              {{ genre }}
-            </p>
+        <div class="card-stats">
+          <div class="card-year">
+            <CustomText tag="p" class="small">{{ year | moment }}</CustomText>
+          </div>
+          <div class="card-average">
+            <CustomText tag="p"><StarIcon /> {{ average }}</CustomText>
+          </div>
+          <div class="card-genres">
+            <div v-for="(genre, index) in genres" :key="index">
+              <CustomText tag="p" class="normal">
+                {{ genre }}
+              </CustomText>
+            </div>
           </div>
         </div>
       </div>
@@ -28,10 +30,15 @@
 
 <script>
 import Container from '@/components/Container'
+import moment from 'moment'
+import StarIcon from '@/icons/StarIcon.svg'
+import CustomText from "@/components/CustomText";
 export default {
   name: 'Card',
   components: {
-    Container
+    CustomText,
+    Container,
+    StarIcon
   },
   props: {
     name: String,
@@ -39,31 +46,58 @@ export default {
     average: Number,
     img: String,
     genres: Array
+  },
+  methods: {
+    moment: function() {
+      return moment()
+    }
+  },
+  filters: {
+    moment: function(date) {
+      return moment(date).format('MMM Do YYYY')
+    }
   }
 }
 </script>
 
 <style scoped>
-.card {
-  width: 250px;
-  height: 300px;
-  padding: 20px;
+.card-image > img {
+  object-fit: contain;
   border: 1px solid black;
   border-radius: 4px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow);
   transition: transform 100ms;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
 }
-.card-image > img {
-  width: 250px;
-  height: 150px;
-  object-fit: contain;
-}
-.card:hover {
+.card-image > img:hover {
   transform: scale(1.09);
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow);
 }
 .card-infos > h2 {
-  padding-top: 10px;
+  padding-top: 8px;
+}
+.card-infos {
+  margin-bottom: var(--header-height);
+}
+.card-infos div {
+  margin-bottom: 4px;
+}
+.card-average svg {
+  color: rgb(245, 197, 24);
+}
+.card-average p {
+  font-size: 16px;
+}
+.card-genres {
+  display: flex;
+}
+.card-genres div {
+  margin-left: 4px;
+  border: 1px solid #FFFFFF1A;
+  padding: 4px;
+  box-shadow: var(--box-shadow);
+}
+.card-genres div:first-child {
+  margin-left: 0;
 }
 </style>
