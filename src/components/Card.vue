@@ -24,6 +24,14 @@
           </div>
         </div>
       </div>
+      <div class="card-follow-button">
+        <button type="button" @click="addFollowList">
+          <PlusIcon />
+          <CustomText class="normal">
+            Follow
+          </CustomText>
+        </button>
+      </div>
     </div>
   </Container>
 </template>
@@ -32,24 +40,31 @@
 import Container from '@/components/Container'
 import moment from 'moment'
 import StarIcon from '@/icons/StarIcon.svg'
-import CustomText from "@/components/CustomText";
+import PlusIcon from '@/icons/PlusIcon.svg'
+import CustomText from '@/components/CustomText'
+
 export default {
   name: 'Card',
   components: {
     CustomText,
     Container,
-    StarIcon
+    StarIcon,
+    PlusIcon
   },
   props: {
     name: String,
     year: String,
     average: Number,
     img: String,
-    genres: Array
+    genres: Array,
+    id: Number
   },
   methods: {
     moment: function() {
       return moment()
+    },
+    addFollowList() {
+      this.$store.state.followList.push(this.id)
     }
   },
   filters: {
@@ -76,14 +91,32 @@ export default {
 .card-infos > h2 {
   padding-top: 8px;
 }
-.card-infos {
+.card-follow-button {
   margin-bottom: var(--header-height);
+  border: 1px solid rgb(var(--border-color));
+  border-radius: 4px;
+  box-shadow: var(--box-shadow);
+  width: 128px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+}
+.card-follow-button button {
+  color: rgb(var(--yellow));
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 .card-infos div {
   margin-bottom: 4px;
 }
 .card-average svg {
-  color: rgb(245, 197, 24);
+  color: rgb(var(--yellow));
 }
 .card-average p {
   font-size: 16px;
@@ -93,7 +126,7 @@ export default {
 }
 .card-genres div {
   margin-left: 4px;
-  border: 1px solid #FFFFFF1A;
+  border: 1px solid rgb(var(--border-color));
   padding: 4px;
   box-shadow: var(--box-shadow);
 }
