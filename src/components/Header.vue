@@ -7,9 +7,7 @@
       </router-link>
 
       <!-- search -->
-      <form class="search">
-        <input type="text" placeholder="Search" />
-      </form>
+      <SearchBar />
 
       <!-- navigation -->
       <nav class="navigation">
@@ -29,13 +27,14 @@
 import Container from '@/components/Container'
 import YourListIcon from '@/icons/YourListIcon.svg'
 import HomeIcon from '@/icons/HomeIcon.svg'
-
+import SearchBar from '@/components/SearchBar'
 export default {
   name: 'MainHeader',
   components: {
     Container,
     YourListIcon,
-    HomeIcon
+    HomeIcon,
+    SearchBar
   }
 }
 </script>
@@ -56,18 +55,6 @@ export default {
   font-family: 'Philosopher', serif;
   width: 200px;
   margin-left: -20px;
-}
-.search {
-  text-align: center;
-  input {
-    width: 250px;
-    height: 32px;
-    border: 1px solid rgb(var(--b6a));
-    background-color: rgb(var(--b3f));
-    border-radius: 4px;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
 }
 .navigation {
   display: flex;
