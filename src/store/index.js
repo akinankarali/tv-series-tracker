@@ -12,14 +12,18 @@ const state = {
 }
 
 //to handle state
-const getters = {}
+const getters = {
+  SHOW_LIST: state => {
+    return state.shows
+  },
+  FOLLOW_LIST: state => {
+    return state.followList
+  }
+}
 
 const mutations = {
   SET_SHOWS(state, data) {
     state.shows = data
-  },
-  SET_GENRES(state, data) {
-    state.genres = data
   }
 }
 
@@ -28,7 +32,6 @@ const actions = {
   async fetchAllShows({ commit }) {
     Shows.all().then(response => {
       commit('SET_SHOWS', response.data)
-      commit('SET_GENRES', response.data)
     })
   }
 }

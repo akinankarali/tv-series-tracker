@@ -2,9 +2,9 @@
   <div class="list">
     <div class="your-list">
       <!-- Worst Case -->
-      <div v-for="(item, index) in getFollowList" :key="index">
-        <div v-for="show in shows" :key="show.id">
-          <div v-if="item == show.id">
+      <div v-for="(item, index) in FOLLOW_LIST" :key="index">
+        <div v-for="show in SHOW_LIST" :key="show.id">
+          <div v-if="item === show.id">
             <Card
               :name="show.name"
               :average="show.rating.average"
@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-      <div v-if="getFollowList.length == 0">
+      <div v-if="FOLLOW_LIST.length < 1">
         <h3>Please follow something :)</h3>
       </div>
     </div>
@@ -33,23 +33,21 @@
 
 <script>
 import Card from '@/components/Card'
+import { mapGetters } from 'vuex'
+import CustomText from '@/components/CustomText'
 export default {
   name: 'List',
   components: {
-    Card
+    Card,
+    CustomText
   },
   methods: {
     removeItem(index) {
-      this.$store.state.followList.splice(index, 1)
+      this.$store.getters.FOLLOW_LIST.splice(index, 1)
     }
   },
   computed: {
-    getFollowList() {
-      return this.$store.state.followList
-    },
-    shows() {
-      return this.$store.state.shows
-    }
+    ...mapGetters(['FOLLOW_LIST', 'SHOW_LIST'])
   }
 }
 </script>
