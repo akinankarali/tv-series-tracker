@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="card-follow-button">
-        <button type="button" @click="addFollowList">
+        <button class="button" type="button" @click="addFollowList">
           <PlusIcon />
           <CustomText class="normal">
             Follow
@@ -111,6 +111,16 @@ export default {
   height: 100%;
   align-items: center;
   justify-content: center;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.card-follow-button button:hover {
+  background-color: rgb(var(--yellow));
+  color: black;
+}
+.card-follow-button button span{
+  margin-right: 4px;
 }
 .card-infos div {
   margin-bottom: 4px;
