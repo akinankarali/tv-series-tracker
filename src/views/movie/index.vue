@@ -8,16 +8,15 @@
 </template>
 
 <script>
-import Card from "@/components/Card";
-import CustomText from "@/components/CustomText";
+import Card from '@/components/Card'
+import CustomText from '@/components/CustomText'
 export default {
   name: 'List',
-  components:{
+  components: {
     CustomText,
-    Card,
+    Card
   }
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

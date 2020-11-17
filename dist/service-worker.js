@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.fa870d9e856310af941d19d9279409d4.js"
+  "/precache-manifest.2ea6f0bf375cc1656879dd25537f9680.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "tv-series-tracker"});

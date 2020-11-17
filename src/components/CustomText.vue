@@ -16,7 +16,18 @@ export default {
       type: String,
       default: 'normal',
       validator: function(value) {
-        return ['normal', 'small', 'xsmall', 'xxsmall', 'medium', 'large', 'xlarge', 'xxlarge'].indexOf(value) !== -1
+        return (
+          [
+            'normal',
+            'small',
+            'xsmall',
+            'xxsmall',
+            'medium',
+            'large',
+            'xlarge',
+            'xxlarge'
+          ].indexOf(value) !== -1
+        )
       }
     }
   }

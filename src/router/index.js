@@ -13,14 +13,12 @@ const routes = [
   {
     path: '/your-list',
     name: 'Your-List',
-    component: () =>
-        import(/* webpackChunkName: "list" */ '../views/list'),
+    component: () => import(/* webpackChunkName: "list" */ '../views/list')
   },
   {
     path: '/movie-info',
     name: 'Movie-info',
-    component: () =>
-        import(/* webpackChunkName: "list" */ '../views/movie'),
+    component: () => import(/* webpackChunkName: "list" */ '../views/movie')
   }
 ]
 
