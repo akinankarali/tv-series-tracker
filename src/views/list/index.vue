@@ -85,7 +85,14 @@ export default {
   height: 100%;
   align-items: center;
   justify-content: center;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
+.card-dontFollow-button button:hover{
+  background-color: #212121;
+}
+
 .card-dontFollow-button button img {
   width: 16px;
   height: 16px;

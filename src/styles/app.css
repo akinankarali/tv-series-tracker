@@ -8,8 +8,10 @@
 
   *,
   *:before,
-  *:after {
+  *:after,
+  *:focus{
     box-sizing: inherit;
+    outline: none;
   }
 }
 

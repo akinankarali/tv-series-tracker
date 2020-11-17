@@ -116,8 +116,7 @@ export default {
   transition: all 0.3s ease-in-out;
 }
 .card-follow-button button:hover {
-  background-color: rgb(var(--yellow));
-  color: black;
+  background-color: #212121;
 }
 .card-follow-button button span{
   margin-right: 4px;
