@@ -8,7 +8,8 @@ Vue.use(Vuex)
 //to handle state
 const state = {
   shows: [],
-  followList: []
+  followList: [],
+  input: ''
 }
 
 //to handle state
@@ -18,12 +19,18 @@ const getters = {
   },
   FOLLOW_LIST: state => {
     return state.followList
+  },
+  GET_INPUT: state => {
+    return state.input
   }
 }
 
 const mutations = {
   SET_SHOWS(state, data) {
     state.shows = data
+  },
+  SET_INPUT(state, data) {
+    state.input = data
   }
 }
 

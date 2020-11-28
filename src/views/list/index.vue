@@ -2,7 +2,11 @@
   <div class="list">
     <div class="your-list">
       <!-- Worst Case -->
-      <div v-for="(item, index) in FOLLOW_LIST" :key="index">
+      <div
+        v-for="(item, index) in FOLLOW_LIST || localStorage.length > 0"
+        :key="index"
+        :follow="followList()"
+      >
         <div v-for="show in SHOW_LIST" :key="show.id">
           <div v-if="item === show.id">
             <Card
@@ -44,7 +48,15 @@ export default {
   methods: {
     removeItem(index) {
       this.$store.getters.FOLLOW_LIST.splice(index, 1)
+    },
+    followList() {
+      localStorage.setItem('FollowList', JSON.stringify(this.FOLLOW_LIST))
     }
+  },
+  created() {
+    this.FOLLOW_LIST = JSON.parse(
+      localStorage.getItem(this.FOLLOW_LIST.id) || '[]'
+    )
   },
   computed: {
     ...mapGetters(['FOLLOW_LIST', 'SHOW_LIST'])
@@ -89,7 +101,7 @@ export default {
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-.card-dontFollow-button button:hover{
+.card-dontFollow-button button:hover {
   background-color: #212121;
 }
 

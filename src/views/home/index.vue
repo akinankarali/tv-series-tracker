@@ -2,7 +2,7 @@
   <div class="home">
     <div class="results">
       <Card
-        v-for="show in SHOW_LIST"
+        v-for="show in showSearch"
         :key="show.id"
         :name="show.name"
         :average="show.rating.average"
@@ -29,7 +29,12 @@ export default {
     Jumper
   },
   computed: {
-    ...mapGetters(['SHOW_LIST'])
+    ...mapGetters(['SHOW_LIST', 'GET_INPUT']),
+    showSearch() {
+      return this.SHOW_LIST.filter(show => {
+        return show.name.toLowerCase().includes(this.GET_INPUT.toLowerCase())
+      })
+    }
   },
   mounted() {
     this.$store.dispatch('fetchAllShows')

@@ -118,7 +118,7 @@ export default {
 .card-follow-button button:hover {
   background-color: #212121;
 }
-.card-follow-button button span{
+.card-follow-button button span {
   margin-right: 4px;
 }
 .card-infos div {
