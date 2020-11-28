@@ -12,7 +12,7 @@
           <div class="card-year">
             <CustomText tag="p" class="small">{{ year | moment }}</CustomText>
           </div>
-          <div class="card-average">
+          <div class="card-average" v-if="average != null">
             <CustomText tag="p"><StarIcon /> {{ average }}</CustomText>
           </div>
           <div class="card-genres">
